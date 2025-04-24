@@ -26,6 +26,8 @@
       <form
         name="contact"
         method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
         @submit.prevent="handleSubmit"
         class="space-y-6 bg-base-200 p-8 rounded-lg shadow-sm"
       >
@@ -132,7 +134,10 @@ const handleSubmit = async () => {
     // Netlify Formsに送信
     const response = await fetch("/", {
       method: "POST",
-      body: formData,
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: new URLSearchParams(formData as any).toString(),
     });
 
     if (!response.ok) {
