@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .markdown-body {
+    @apply text-base-content font-sans;
+  }
+
+  .markdown-body img {
+    @apply rounded-lg my-4 mx-auto;
+    max-height: 600px;
+    width: auto;
+  }
+
+  .markdown-body p {
+    @apply my-4 font-sans;
+  }
+
+  .markdown-body h1,
+  .markdown-body h2,
+  .markdown-body h3,
+  .markdown-body h4,
+  .markdown-body h5,
+  .markdown-body h6 {
+    @apply font-bold mt-8 mb-4 font-sans;
+  }
+
+  .markdown-body h1 {
+    @apply text-3xl;
+  }
+
+  .markdown-body h2 {
+    @apply text-2xl;
+  }
+
+  .markdown-body h3 {
+    @apply text-xl;
+  }
+
+  .markdown-body ul,
+  .markdown-body ol {
+    @apply my-4 ml-6;
+  }
+
+  .markdown-body li {
+    @apply my-2 font-sans;
+  }
+
+  .markdown-body a {
+    @apply text-primary hover:text-primary/80 underline font-sans;
+  }
+
+  .markdown-body blockquote {
+    @apply border-l-4 border-primary bg-base-200 px-4 py-2 my-4 font-sans;
+  }
+
+  .markdown-body code {
+    @apply bg-base-200 px-2 py-1 rounded text-sm font-mono;
+  }
+
+  .markdown-body pre code {
+    @apply block p-4 overflow-x-auto font-mono;
+  }
+}
+
+/* はんなり明朝用のスタイル */
+@layer utilities {
+  .hannari-content * {
+    @apply font-hannari;
+  }
+
+  .hannari-headings h1,
+  .hannari-headings h2,
+  .hannari-headings h3,
+  .hannari-headings h4,
+  .hannari-headings h5,
+  .hannari-headings h6 {
+    @apply font-hannari;
+  }
+}

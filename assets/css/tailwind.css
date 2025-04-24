@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* グローバルなフォント設定 */
+@layer base {
+  /* はんなり明朝フォントのプリロード */
+  @import url("https://fonts.googleapis.com/css2?family=Hannari&display=swap");
+}
+
+@layer utilities {
+  /* はんなり明朝用のユーティリティクラス */
+  .font-hannari {
+    font-family: "Hannari", "Noto Serif JP", serif !important;
+  }
+
+  /* はんなり明朝の太字表現（実際にはNoto Serif JPにフォールバック） */
+  .font-hannari-bold {
+    font-family: "Hannari", "Noto Serif JP", serif !important;
+    font-weight: bold !important;
+  }
+}
+
+/* カスタムコンポーネントスタイル */
+@layer components {
+  .hannari-heading {
+    @apply font-hannari;
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "name": "@nuxtjs-tailwindcss/daisyui",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@nuxt/content": "^3.5.0",
+    "@nuxt/image": "^1.4.0",
+    "@nuxtjs/color-mode": "latest",
+    "@nuxtjs/tailwindcss": "latest",
+    "contentful": "^11.5.15",
+    "marked": "^15.0.10",
+    "nuxt": "latest",
+    "swiper": "^11.2.6"
+  },
+  "devDependencies": {
+    "@nuxtjs/google-fonts": "^3.2.0",
+    "@types/tailwindcss": "^3.1.0",
+    "daisyui": "^4.7.2",
+    "install": "^0.13.0",
+    "rehype-external-links": "^3.0.0",
+    "remark-gfm": "^4.0.1",
+    "tailwindcss": "^3.3.5"
+  }
+}
