@@ -1,6 +1,6 @@
 # 曽良窯 公式ウェブサイト (2025 年リニューアル版)
 
-このリポジトリは曽良窯の公式ウェブサイトのソースコードを管理しています。Nuxt 3 を使用した SPA として実装されています。
+このリポジトリは工房草來舎の公式ウェブサイトのソースコードを管理しています。Nuxt 3 を使用した SPA として実装されています。
 
 ## 技術スタック
 
@@ -68,4 +68,4 @@ NUXT_PUBLIC_SITE_URL=https://soraisha.netlify.app
 
 ## ライセンス
 
-All Rights Reserved - 曽良窯
+All Rights Reserved - 工房草來舎
