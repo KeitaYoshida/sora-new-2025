@@ -10,8 +10,17 @@ export default defineNuxtConfig({
   css: ["~/assets/css/tailwind.css", "~/assets/css/markdown.css"],
 
   image: {
+    provider: "contentful",
+    contentful: {
+      baseURL: "https://images.ctfassets.net",
+      spaces: {
+        default: {
+          spaceId: process.env.NUXT_PUBLIC_CONTENTFUL_SPACE_ID,
+          accessToken: process.env.NUXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
+        },
+      },
+    },
     domains: ["images.ctfassets.net"],
-    contentful: {},
     format: ["webp", "jpg", "jpeg", "png"],
     quality: 80,
   },

@@ -31,13 +31,13 @@
             >
               <div class="relative overflow-hidden blog-image-container h-full">
                 <nuxt-img
-                  :src="`https:${post.heroImage?.fields?.file?.url}`"
+                  :src="post.heroImage?.fields?.file?.url"
                   :alt="post.title"
                   class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   width="600"
                   height="600"
                   loading="lazy"
-                  provider="ipx"
+                  provider="contentful"
                   format="webp"
                 />
                 <div
