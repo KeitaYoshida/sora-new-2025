@@ -37,7 +37,8 @@ export default defineNuxtConfig({
 
   // @nuxt/content configuration
   content: {
-    // マークダウンの設定
+    // Disable the SQLite dependency
+    documentDriven: false,
     markdown: {
       // コードブロックのシンタックスハイライト
       highlight: {
@@ -46,6 +47,7 @@ export default defineNuxtConfig({
       // マークダウンの拡張機能
       remarkPlugins: ["remark-gfm"],
       rehypePlugins: ["rehype-external-links"],
+      anchorLinks: false,
     },
   } as any,
 
