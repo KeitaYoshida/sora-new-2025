@@ -1,13 +1,18 @@
 <template>
-  <div class="container mx-auto px-4 py-8">
-    <h1 class="text-3xl font-bold mb-6">記事一覧</h1>
+  <div class="container mx-auto py-8">
+    <div class="px-4">
+      <h1 class="text-3xl font-bold mb-6">記事一覧</h1>
+    </div>
     <div v-if="loading" class="text-center py-8">
       <span class="loading loading-spinner loading-lg"></span>
     </div>
-    <div v-else-if="error" class="alert alert-error">
+    <div v-else-if="error" class="alert alert-error mx-4">
       <span>{{ error }}</span>
     </div>
-    <div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div
+      v-else
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4"
+    >
       <div v-if="!posts.length" class="col-span-full text-center py-8">
         No blog posts found.
       </div>
@@ -28,8 +33,8 @@
               loading="lazy"
               width="800"
               height="600"
-              fit="contain"
-              class="w-full h-full object-contain bg-gray-100 rounded-t-xl transition-transform duration-300 hover:scale-105"
+              fit="cover"
+              class="w-full h-full object-cover bg-gray-100 transition-transform duration-300 hover:scale-105"
             />
           </figure>
         </NuxtLink>
@@ -38,9 +43,16 @@
           <p class="text-sm text-gray-500">
             {{ formatDate(post.publishDate) }}
           </p>
-          <div class="badge badge-primary">{{ post.category.name }}</div>
-          <p>{{ post.description }}</p>
-          <div class="card-actions justify-end">
+          <div class="flex flex-wrap gap-2 mt-2">
+            <div class="badge badge-lg badge-primary">
+              {{ post.category.name }}
+            </div>
+            <div v-for="tag in post.tags" :key="tag" class="badge badge-lg">
+              {{ tag }}
+            </div>
+          </div>
+          <p class="mt-4">{{ post.description }}</p>
+          <div class="card-actions justify-end mt-4">
             <NuxtLink :to="`/blog/${post.slug}`" class="btn btn-primary"
               >Read More</NuxtLink
             >

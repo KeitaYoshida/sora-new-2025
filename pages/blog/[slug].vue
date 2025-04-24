@@ -1,37 +1,35 @@
 <template>
-  <div v-if="blog" class="container mx-auto px-4 py-8">
-    <div class="max-w-screen-xl mx-auto">
-      <!-- ヘッダー -->
-      <header class="mb-8 max-w-4xl mx-auto px-6">
-        <h1 class="text-4xl font-bold mb-4">{{ blog.title }}</h1>
-        <div class="flex items-center gap-4 text-base-content/70">
-          <time>{{ formatDate(blog.publishDate) }}</time>
-          <div class="flex items-center gap-2">
-            <span class="badge badge-primary">{{ blog.category.name }}</span>
-            <span v-for="tag in blog.tags" :key="tag" class="badge">{{
-              tag
-            }}</span>
-          </div>
-        </div>
-      </header>
-
-      <!-- メイン画像 -->
-      <figure
-        v-if="blog.heroImage"
-        class="relative w-full max-w-screen-lg mx-auto mb-12 overflow-hidden rounded-xl bg-gray-100"
+  <div v-if="blog">
+    <!-- ヘッダー -->
+    <header class="container mx-auto px-4 py-8 max-w-4xl">
+      <h1 class="text-4xl font-bold mb-4">{{ blog.title }}</h1>
+      <div
+        class="flex flex-col sm:flex-row sm:items-center gap-4 text-base-content/70"
       >
-        <nuxt-img
-          :src="blog.heroImage.fields.file.url"
-          :alt="blog.title"
-          provider="contentful"
-          loading="lazy"
-          sizes="xl:1280px lg:1024px md:768px sm:640px 100vw"
-          placeholder
-          class="w-full h-auto"
-        />
-      </figure>
+        <time>{{ formatDate(blog.publishDate) }}</time>
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="badge badge-lg badge-primary">{{
+            blog.category.name
+          }}</span>
+          <span v-for="tag in blog.tags" :key="tag" class="badge badge-lg">{{
+            tag
+          }}</span>
+        </div>
+      </div>
+    </header>
 
-      <!-- 本文 -->
+    <!-- メイン画像 -->
+    <figure v-if="blog.heroImage" class="relative w-full mb-12 bg-gray-100">
+      <img
+        :src="`https:${blog.heroImage.fields.file.url}`"
+        :alt="blog.title"
+        class="w-full h-auto object-cover"
+        loading="lazy"
+      />
+    </figure>
+
+    <!-- 本文 -->
+    <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto">
         <div
           class="prose prose-lg markdown-body bg-base-100 p-6 sm:p-8 rounded-xl shadow-sm"
@@ -41,7 +39,7 @@
       </div>
 
       <!-- ナビゲーション -->
-      <div class="mt-12 flex justify-between max-w-4xl mx-auto px-6">
+      <div class="mt-12 flex justify-between max-w-4xl mx-auto">
         <NuxtLink to="/blog" class="btn btn-outline"> 記事一覧に戻る </NuxtLink>
       </div>
     </div>
