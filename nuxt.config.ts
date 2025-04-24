@@ -3,7 +3,6 @@ export default defineNuxtConfig({
   modules: [
     "@nuxtjs/tailwindcss",
     "@nuxtjs/color-mode",
-    "@nuxt/content",
     "@nuxt/image",
     "@nuxtjs/google-fonts",
   ],
@@ -34,22 +33,6 @@ export default defineNuxtConfig({
       contentfulPreviewToken: process.env.NUXT_PUBLIC_CONTENTFUL_PREVIEW_TOKEN,
     },
   },
-
-  // @nuxt/content configuration
-  content: {
-    // Disable the SQLite dependency
-    documentDriven: false,
-    markdown: {
-      // コードブロックのシンタックスハイライト
-      highlight: {
-        theme: "github-dark",
-      },
-      // マークダウンの拡張機能
-      remarkPlugins: ["remark-gfm"],
-      rehypePlugins: ["rehype-external-links"],
-      anchorLinks: false,
-    },
-  } as any,
 
   googleFonts: {
     families: {
