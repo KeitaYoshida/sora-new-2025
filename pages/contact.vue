@@ -126,15 +126,18 @@ const handleSubmit = async () => {
     const formData = new FormData();
     formData.append("form-name", "contact");
     Object.entries(form.value).forEach(([key, value]) => {
-      formData.append(key, value);
+      formData.append(key, value.toString());
     });
 
     // Netlify Formsに送信
-    await fetch("/", {
+    const response = await fetch("/", {
       method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(formData as any).toString(),
+      body: formData,
     });
+
+    if (!response.ok) {
+      throw new Error(`送信に失敗しました: ${response.status}`);
+    }
 
     // フォームをリセット
     form.value = {
