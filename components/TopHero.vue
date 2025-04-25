@@ -31,7 +31,7 @@
         <div class="w-48 md:w-56 relative md:mt-10">
           <img
             src="/logo.webp"
-            alt="工房草来舎"
+            alt="工房草來舎"
             class="w-full h-auto transition-transform duration-700 group-hover:scale-105"
           />
         </div>
@@ -41,7 +41,7 @@
           <div
             class="writing-vertical font-hannari text-xl text-[#2B5329] font-bold text-shadow-lg transition-transform duration-700 group-hover:scale-[1.02]"
           >
-            <p>工房草来舎は大婦ふたりの陶芸工房</p>
+            <p>工房草來舎は大婦ふたりの陶芸工房</p>
             <p>信州伊那谷、泰阜村に登り窯を築き</p>
             <p>釉は灰から仕立てた灰釉と</p>
             <p>薪の灰からできた自然釉</p>
@@ -52,7 +52,7 @@
         <div
           class="md:hidden mt-12 font-hannari text-center space-y-4 text-[#2B5329] font-bold text-lg transition-transform duration-700 group-hover:scale-[1.02]"
         >
-          <p>工房草来舎は大婦ふたりの陶芸工房</p>
+          <p>工房草來舎は大婦ふたりの陶芸工房</p>
           <p>信州伊那谷、泰阜村に登り窯を築き</p>
           <p>釉は灰から仕立てた灰釉と</p>
           <p>薪の灰からできた自然釉</p>

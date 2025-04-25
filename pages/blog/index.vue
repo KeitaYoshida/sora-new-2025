@@ -1,8 +1,9 @@
 <template>
-  <div class="container mx-auto py-8">
+  <div class="container mx-auto py-8 font-hannari">
     <div class="px-4">
-      <h1 class="text-3xl font-bold mb-6">記事一覧</h1>
+      <h1 class="text-2xl md:text-3xl font-bold mb-6">記事一覧</h1>
     </div>
+    <div class="divider"></div>
     <div v-if="loading" class="text-center py-8">
       <span class="loading loading-spinner loading-lg"></span>
     </div>
@@ -19,45 +20,62 @@
       <div
         v-for="post in posts"
         :key="post.id"
-        class="card bg-base-100 shadow-xl overflow-hidden"
+        class="card bg-base-100 shadow-xl overflow-hidden group"
       >
         <NuxtLink
           :to="`/blog/${post.slug}`"
-          class="hover:opacity-95 transition-all duration-300 block"
+          class="relative block aspect-square overflow-hidden"
         >
-          <figure class="relative w-full aspect-[4/3] overflow-hidden">
+          <figure class="relative w-full h-full">
             <nuxt-img
               :src="post.heroImage?.fields.file.url"
               :alt="post.title"
               provider="contentful"
               loading="lazy"
               width="800"
-              height="600"
-              fit="cover"
-              class="w-full h-full object-cover bg-gray-100 transition-transform duration-300 hover:scale-105"
+              height="800"
+              fit="contain"
+              class="w-full h-full object-contain bg-gray-50/80 transition-all duration-300 group-hover:scale-105"
             />
           </figure>
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-white/90 via-white/50 to-transparent p-4 md:p-6 flex flex-col justify-end text-gray-800 transform transition-all duration-300 font-bold"
+          >
+            <div class="min-h-[120px] flex flex-col justify-end">
+              <p
+                class="text-sm text-gray-600 mb-2 transform transition-transform duration-300 group-hover:-translate-y-1"
+              >
+                {{ formatDate(post.publishDate) }}
+              </p>
+              <div
+                class="flex flex-wrap gap-2 mb-2 transform transition-transform duration-300 group-hover:-translate-y-1"
+              >
+                <div class="badge badge-sm badge-primary whitespace-nowrap">
+                  {{ post.category.name }}
+                </div>
+                <div
+                  v-for="(tag, index) in post.tags"
+                  :key="tag"
+                  class="badge badge-sm badge-ghost whitespace-nowrap"
+                  v-show="index < 2"
+                >
+                  {{ tag }}
+                </div>
+                <div
+                  v-if="post.tags.length > 2"
+                  class="badge badge-sm badge-ghost whitespace-nowrap"
+                >
+                  +{{ post.tags.length - 2 }}
+                </div>
+              </div>
+              <h2
+                class="card-title text-lg md:text-xl line-clamp-2 transform transition-transform duration-300 group-hover:-translate-y-1"
+              >
+                {{ post.title }}
+              </h2>
+            </div>
+          </div>
         </NuxtLink>
-        <div class="card-body">
-          <h2 class="card-title">{{ post.title }}</h2>
-          <p class="text-sm text-gray-500">
-            {{ formatDate(post.publishDate) }}
-          </p>
-          <div class="flex flex-wrap gap-2 mt-2">
-            <div class="badge badge-lg badge-primary">
-              {{ post.category.name }}
-            </div>
-            <div v-for="tag in post.tags" :key="tag" class="badge badge-lg">
-              {{ tag }}
-            </div>
-          </div>
-          <p class="mt-4">{{ post.description }}</p>
-          <div class="card-actions justify-end mt-4">
-            <NuxtLink :to="`/blog/${post.slug}`" class="btn btn-primary"
-              >Read More</NuxtLink
-            >
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -97,3 +115,23 @@ definePageMeta({
   description: "Read our latest blog posts",
 });
 </script>
+
+<style scoped>
+.card {
+  @media (hover: none) {
+    .absolute {
+      background: linear-gradient(
+        to top,
+        rgba(255, 255, 255, 0.9) 0%,
+        rgba(255, 255, 255, 0.5) 50%,
+        transparent 100%
+      );
+
+      .opacity-0 {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+}
+</style>

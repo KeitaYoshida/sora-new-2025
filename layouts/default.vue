@@ -7,11 +7,11 @@
       :class="{ '-translate-y-full': isHeaderHidden }"
     >
       <div
-        class="container mx-auto px-4 h-24 flex items-center justify-between"
+        class="container mx-auto px-4 h-16 md:h-24 flex items-center justify-between"
       >
         <!-- ロゴ -->
         <NuxtLink to="/" class="flex items-center">
-          <img src="/sora-logo2.webp" alt="工房 草来舎" class="h-16" />
+          <img src="/sora-logo2.webp" alt="工房 草来舎" class="h-12 md:h-16" />
         </NuxtLink>
 
         <!-- 右メニュー（PC） -->
@@ -38,16 +38,16 @@
 
     <!-- モバイルメニュー -->
     <div
-      class="fixed inset-0 bg-base-100 z-40 transform transition-transform duration-300 md:hidden"
+      class="fixed inset-0 top-16 bg-base-100 z-40 transform transition-transform duration-300 md:hidden"
       :class="isMenuOpen ? 'translate-x-0' : 'translate-x-full'"
     >
-      <div class="container mx-auto px-4 py-20">
-        <nav class="flex flex-col space-y-4">
+      <div class="container mx-auto px-4 py-2">
+        <nav class="flex flex-col">
           <NuxtLink
             v-for="item in menuItems"
             :key="item.path"
             :to="item.path"
-            class="text-lg hover:text-primary transition-colors"
+            class="text-lg hover:text-primary transition-colors py-2"
             @click="isMenuOpen = false"
           >
             {{ item.label }}
@@ -90,7 +90,7 @@
     </div>
 
     <!-- メインコンテンツ -->
-    <main class="pt-24 pb-32">
+    <main class="pt-16 md:pt-24 pb-32">
       <!-- コンテンツラッパー -->
       <div class="container mx-auto">
         <slot />
