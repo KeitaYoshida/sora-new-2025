@@ -11,7 +11,7 @@
       >
         <!-- ロゴ -->
         <NuxtLink to="/" class="flex items-center">
-          <img src="/sora-logo2.webp" alt="工房 草来舎" class="h-12 md:h-16" />
+          <img src="/sora-logo2.webp" alt="工房 草來舎" class="h-12 md:h-16" />
         </NuxtLink>
 
         <!-- 右メニュー（PC） -->
