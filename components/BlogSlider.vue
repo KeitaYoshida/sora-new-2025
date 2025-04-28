@@ -3,10 +3,10 @@
     <div class="container mx-auto px-4">
       <div class="relative max-w-6xl mx-auto">
         <div class="p-6 w-full">
-          <h3 class="font-hannari text-4xl mb-2 font-bold text-center">
-            工房草来舎について
+          <h3 class="text-4xl mb-2 font-bold text-center">
+            工房 草來舎について
           </h3>
-          <p class="line-clamp-2 text-center text-xl font-hannari mt-4">
+          <p class="line-clamp-2 text-center text-xl mt-4">
             自然豊かな環境の中で、一つ一つ丁寧に作品を制作しています。
             手作りの温もりと、使う人の心に寄り添うものづくりを心がけています。
           </p>
