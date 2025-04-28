@@ -52,7 +52,7 @@
         <div
           class="md:hidden mt-12 font-hannari text-center space-y-4 text-[#2B5329] font-bold text-lg transition-transform duration-700 group-hover:scale-[1.02]"
         >
-          <p>工房草來舎は大婦ふたりの陶芸工房</p>
+          <p>工房草來舎は夫婦ふたりの陶芸工房</p>
           <p>信州伊那谷、泰阜村に登り窯を築き</p>
           <p>釉は灰から仕立てた灰釉と</p>
           <p>薪の灰からできた自然釉</p>
